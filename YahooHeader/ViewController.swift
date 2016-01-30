@@ -64,6 +64,10 @@ class ViewController: UIViewController {
         path.addLineToPoint(CGPoint(x: 0, y: headerRect.height - tableHeaderCutAway))
         headerMaskLayer?.path = path.CGPath
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
 }
 
