@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 
         headerView = tableView.tableHeaderView as! HeaderView
         tableView.tableHeaderView = nil
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.addSubview(headerView)
         
         tableView.contentInset = UIEdgeInsets(top: tableHeaderHeight, left: 0, bottom: 0, right: 0)
@@ -83,6 +84,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        cell.layer.borderColor = UIColor.clearColor().CGColor
+        
         return cell
     }
 }
