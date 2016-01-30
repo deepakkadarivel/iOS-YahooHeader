@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         path.addLineToPoint(CGPoint(x: headerRect.width, y: 0))
         path.addLineToPoint(CGPoint(x: headerRect.width, y: headerRect.height))
         path.addLineToPoint(CGPoint(x: 0, y: headerRect.height - tableHeaderCutAway))
-        headerMaskLayer.path = path.CGPath
+        headerMaskLayer?.path = path.CGPath
     }
 
 }
@@ -80,6 +80,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         return cell
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        updateHeaderView()
     }
 }
 
